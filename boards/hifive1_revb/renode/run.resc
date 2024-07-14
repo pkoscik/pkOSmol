@@ -1,0 +1,22 @@
+$name?="hifive1_revb"
+
+using sysbus
+mach create $name
+machine LoadPlatformDescription $ORIGIN/hifive1_revb.repl
+
+showAnalyzer uart0
+
+$bin?=$ORIGIN/../../../output/pkos.elf
+
+macro reset
+"""
+    sysbus LoadELF $bin
+"""
+
+# debug
+# sysbus.cpu0 LogFunctionNames true true
+# sysbus LogAllPeripheralsAccess true
+# sysbus.cpu0 MaximumBlockSize 1
+
+runMacro $reset
+s

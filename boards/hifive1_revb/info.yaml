@@ -1,0 +1,26 @@
+id: hifive1_revb
+vendor: sifive
+
+cpus:
+  fe310:
+    arch: riscv
+    isa: rv32imac_zicsr
+    abi: ilp32
+
+devices:
+  uart0:
+    address: 0x10013000
+    type: serial
+    driver: uart_sifive
+
+  dtim:
+    address: 0x80000000
+    size: 0x4000
+    type: ram
+
+  # XXX(pkoscik): this is a lie - this device is located at the spi bus!
+  flash:
+    address: 0x20010000
+    size: 0x3c0900
+    type: memory
+    

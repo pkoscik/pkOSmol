@@ -50,3 +50,13 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Output dir
+output/
+
+# Caches
+.cache
+__pycache__
+
+# clangd
+compile_commands.json
